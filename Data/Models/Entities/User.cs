@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Getir.Data.Models
+namespace Getir.Data.Models.Entities
 {
     public class User
     {
@@ -10,13 +10,22 @@ namespace Getir.Data.Models
         [MaxLength(255)]
         public string LastName { get; set; } = null!;
         [MaxLength(255)]
-        public string Password { get; set; } = null!; 
+        public string PasswordHash { get; set; } = null!; 
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow; // might change time setting functionality to db level
         [MaxLength(255)]
         public string CreatedBy { get; set; }
         public bool IsActive { get; set; }
+        public UserState State{ get; set; } 
 
-        public Icolel
+        public ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();  
         
+    }
+    public enum UserState
+    {
+        Registered,
+        Confirmed,
+        Suspended,
+        Deleted 
+
     }
 }
