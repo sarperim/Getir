@@ -21,5 +21,9 @@ namespace Getir.Data
         public IGenericRepository<Address> Address => Addresses ??= new GenericRepository<Address>(_dbContext);
         public IGenericRepository<RefreshToken> RefreshToken => RefreshTokens ??= new GenericRepository<RefreshToken>(_dbContext);
 
+        public Task SaveChangesAsync()
+        {
+            return _dbContext.SaveChangesAsync();
+        }
     }
 }
