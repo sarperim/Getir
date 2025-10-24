@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Getir.Data.Models.Entities
+namespace Getir.Data.Models
 {
     public class Address
     {
@@ -8,8 +8,11 @@ namespace Getir.Data.Models.Entities
         public Guid UserId { get; set; } //fk to user table
         [MaxLength(255)]
         public string Apartment { get; set; }
-        [MaxLength(3)]
+        [MaxLength(255)]
         public int RoomNumber{ get; set; }
+        [MaxLength(255)]
+        public int Floor { get; set; }
+
         [MaxLength(255)]
         public string Street { get; set; }
         [MaxLength(255)]
@@ -17,6 +20,7 @@ namespace Getir.Data.Models.Entities
         [MaxLength(255)]
         public string City{ get; set; }
 
+        public User User { get; set; } = null!;
     }
 
 }

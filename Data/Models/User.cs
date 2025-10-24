@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Getir.Data.Models.Entities
+namespace Getir.Data.Models
 {
     public class User
     {
@@ -18,6 +18,7 @@ namespace Getir.Data.Models.Entities
         public UserState State{ get; set; } 
 
         public ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();  
+        public ICollection<Address> Addresses{ get; set; } = new List<Address>();  
         
     }
     public enum UserState
