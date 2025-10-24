@@ -8,17 +8,17 @@ namespace Getir.Data
     public class UnitofWork : IUnitOfWork
     {
         private readonly GetirDbContext _dbContext;
-        private IGenericRepository<User>? Users;
-        private IGenericRepository<Address>? Addresses;
-        private IGenericRepository<RefreshToken>? RefreshTokens;
+        public IUserRepository Users { get; }
+        public IAddressRepository? Addresses { get; }
+        public IGenericRepository<RefreshToken>? RefreshTokens;
 
-        public UnitofWork(GetirDbContext dbcontext)
+        public UnitofWork(GetirDbContext dbcontext, IAddressRepository address, IUserRepository user)
         {
             _dbContext = dbcontext;
+            Addresses = address;
+            Users = user;
         }
 
-        public IGenericRepository<User> User => Users ??= new GenericRepository<User>(_dbContext);
-        public IGenericRepository<Address> Address => Addresses ??= new GenericRepository<Address>(_dbContext);
         public IGenericRepository<RefreshToken> RefreshToken => RefreshTokens ??= new GenericRepository<RefreshToken>(_dbContext);
 
         public Task SaveChangesAsync()
