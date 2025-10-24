@@ -19,8 +19,6 @@
   <ItemGroup>
     <Folder Include="Presentation\Controllers\" />
     <Folder Include="Data\DTOs\" />
-    <Folder Include="Data\Repository\Interfaces\" />
-    <Folder Include="Data\Repository\Repositories\" />
     <Folder Include="Presentation\" />
     <Folder Include="Services\" />
   </ItemGroup>

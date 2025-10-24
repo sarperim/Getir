@@ -1,7 +1,6 @@
 using Getir.Data;
 using Microsoft.EntityFrameworkCore;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -13,6 +12,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<GetirDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IUnitOfWork, UnitofWork>();
 
 var app = builder.Build();
 
