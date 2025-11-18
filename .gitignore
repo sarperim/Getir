@@ -60,5 +60,6 @@ Thumbs.db
 ## Secrets / configs
 appsettings.Development.json
 appsettings.Local.json
+appsettings.json
 secrets.json
 .env
